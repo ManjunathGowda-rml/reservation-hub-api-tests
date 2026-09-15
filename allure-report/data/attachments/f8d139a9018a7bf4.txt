@@ -1,0 +1,3 @@
+DELETE https://restful-booker.herokuapp.com/booking/1872
+Status: 201
+Response body: Created

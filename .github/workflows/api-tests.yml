@@ -1,0 +1,51 @@
+name: Bookings API regression suite
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # Intentionally not wrapped with continue-on-error: a handful of
+      # tests are expected to fail against known, tracked product defects
+      # (see BUGS.md) - the job SHOULD report that honestly. The report
+      # steps below still run via `if: always()` so the Allure/HTML output
+      # is available regardless of the exit code.
+      - name: Run API test suite
+        run: pytest
+
+      - name: Install Allure CLI
+        if: always()
+        run: |
+          curl -sL -o allure.tgz https://github.com/allure-framework/allure2/releases/download/2.29.0/allure-2.29.0.tgz
+          tar -xzf allure.tgz
+
+      - name: Generate Allure HTML report
+        if: always()
+        run: ./allure-2.29.0/bin/allure generate allure-results --clean -o allure-report
+
+      - name: Upload Allure report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: allure-report
+
+      - name: Upload self-contained HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: report-html
+          path: report.html

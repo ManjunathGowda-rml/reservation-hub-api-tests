@@ -1,0 +1,4 @@
+PATCH https://restful-booker.herokuapp.com/booking/1786
+Request body: {"totalprice": 321}
+Status: 200
+Response body: {"firstname":"Guest-ad38bb5b","lastname":"Tester-4553c26e","totalprice":321,"depositpaid":true,"bookingdates":{"checkin":"2026-06-01","checkout":"2026-06-05"},"additionalneeds":"Breakfast"}

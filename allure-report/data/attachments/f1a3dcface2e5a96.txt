@@ -1,0 +1,4 @@
+POST https://restful-booker.herokuapp.com/booking
+Request body: {"firstname": "Guest-2d0e3107", "lastname": "Tester-bc8d1acb", "totalprice": 150, "bookingdates": {"checkin": "2026-06-01", "checkout": "2026-06-05"}, "additionalneeds": "Breakfast"}
+Status: 500
+Response body: Internal Server Error

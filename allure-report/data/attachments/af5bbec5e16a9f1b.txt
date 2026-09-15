@@ -1,0 +1,3 @@
+DELETE https://restful-booker.herokuapp.com/booking/1763
+Status: 403
+Response body: Forbidden

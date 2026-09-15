@@ -1,0 +1,3 @@
+GET https://restful-booker.herokuapp.com/booking?firstname=Guest-9172681c&lastname=Tester-2fe3a438
+Status: 200
+Response body: [{"bookingid":1856}]

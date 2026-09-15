@@ -1,0 +1,3 @@
+GET https://restful-booker.herokuapp.com/ping
+Status: 201
+Response body: Created

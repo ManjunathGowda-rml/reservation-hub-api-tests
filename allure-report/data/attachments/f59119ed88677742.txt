@@ -1,0 +1,3 @@
+GET https://restful-booker.herokuapp.com/booking/1808
+Status: 404
+Response body: Not Found
