@@ -1,6 +1,5 @@
 requests>=2.31
 jsonschema>=4.20
 pytest>=7.4
-allure-pytest>=2.13
 pytest-html>=4.1
 tenacity>=8.2

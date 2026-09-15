@@ -1,4 +1,0 @@
-POST https://restful-booker.herokuapp.com/booking
-Request body: {"firstname": "Guest-a23d3a15", "lastname": "Tester-73a59e95", "totalprice": 0, "depositpaid": true, "bookingdates": {"checkin": "2026-06-01", "checkout": "2026-06-05"}, "additionalneeds": "Breakfast"}
-Status: 200
-Response body: {"bookingid":1824,"booking":{"firstname":"Guest-a23d3a15","lastname":"Tester-73a59e95","totalprice":0,"depositpaid":true,"bookingdates":{"checkin":"2026-06-01","checkout":"2026-06-05"},"additionalneeds":"Breakfast"}}

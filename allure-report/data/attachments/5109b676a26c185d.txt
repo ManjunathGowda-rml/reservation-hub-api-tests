@@ -1,4 +1,0 @@
-PATCH https://restful-booker.herokuapp.com/booking/1755
-Request body: {"totalprice": 1}
-Status: 403
-Response body: Forbidden

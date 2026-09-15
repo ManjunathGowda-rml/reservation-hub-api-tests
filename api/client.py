@@ -1,12 +1,11 @@
 """Thin HTTP client for the Reservation Hub Bookings API.
 
 Test modules should never call `requests` directly - going through this
-client keeps the base URL, timeouts, cold-start retries and Allure
+client keeps the base URL, timeouts, cold-start retries and
 request/response logging in one place instead of scattered across tests.
 """
 import logging
 
-import allure
 import requests
 from tenacity import retry, retry_if_exception_type, stop_after_attempt, wait_exponential
 
@@ -41,14 +40,8 @@ def _log_request_response(response):
         lines.append(f"Request body: {body}")
     lines.append(f"Status: {response.status_code}")
     lines.append(f"Response body: {response.text}")
-    detail = "\n".join(lines)
 
-    logger.debug(detail)
-    allure.attach(
-        detail,
-        name=f"{request.method} {request.path_url}",
-        attachment_type=allure.attachment_type.TEXT,
-    )
+    logger.debug("\n".join(lines))
 
 
 class BookingApiClient:

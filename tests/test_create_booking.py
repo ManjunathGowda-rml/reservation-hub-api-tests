@@ -1,12 +1,9 @@
-import allure
 import pytest
 
 from api.schemas import CREATE_BOOKING_RESPONSE_SCHEMA, assert_matches_schema
 from data.booking_factory import build_booking
 
 
-@allure.feature("Create Booking")
-@allure.severity(allure.severity_level.CRITICAL)
 @pytest.mark.crud
 class TestCreateBooking:
     def test_create_booking_returns_the_booking_that_was_sent(self, api_client):

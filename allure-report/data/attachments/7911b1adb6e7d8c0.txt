@@ -1,3 +1,0 @@
-DELETE https://restful-booker.herokuapp.com/booking/999999999
-Status: 405
-Response body: Method Not Allowed

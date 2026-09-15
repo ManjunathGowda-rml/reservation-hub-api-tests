@@ -1,4 +1,3 @@
-import allure
 import pytest
 from requests.auth import HTTPBasicAuth
 
@@ -6,10 +5,8 @@ from config import AUTH_PASSWORD, AUTH_USERNAME
 from data.booking_factory import build_booking
 
 
-@allure.feature("Authentication")
 @pytest.mark.auth
 class TestAuth:
-    @allure.severity(allure.severity_level.CRITICAL)
     def test_valid_credentials_return_a_token(self, api_client):
         response = api_client.auth(AUTH_USERNAME, AUTH_PASSWORD)
 
@@ -17,7 +14,6 @@ class TestAuth:
         body = response.json()
         assert isinstance(body.get("token"), str) and body["token"]
 
-    @allure.severity(allure.severity_level.NORMAL)
     @pytest.mark.negative
     def test_invalid_credentials_are_rejected_with_401(self, api_client):
         """A correct auth endpoint signals failure via status code - a
@@ -33,10 +29,8 @@ class TestAuth:
         )
 
 
-@allure.feature("Authorization")
 @pytest.mark.auth
 class TestWriteAuthorization:
-    @allure.severity(allure.severity_level.BLOCKER)
     @pytest.mark.parametrize("verb", ["PUT", "PATCH", "DELETE"])
     def test_write_operations_are_rejected_without_auth(self, api_client, new_booking, verb):
         booking_id, _, _ = new_booking
@@ -50,7 +44,6 @@ class TestWriteAuthorization:
 
         assert response.status_code == 403
 
-    @allure.severity(allure.severity_level.BLOCKER)
     def test_write_operation_is_rejected_with_an_invalid_token(self, api_client, new_booking):
         booking_id, _, _ = new_booking
 
@@ -60,7 +53,6 @@ class TestWriteAuthorization:
 
         assert response.status_code == 403
 
-    @allure.severity(allure.severity_level.NORMAL)
     def test_http_basic_auth_is_accepted_as_an_alternative_to_the_cookie_token(self, api_client, new_booking):
         booking_id, _, _ = new_booking
 

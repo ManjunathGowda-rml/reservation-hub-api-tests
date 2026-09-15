@@ -1,4 +1,0 @@
-POST https://restful-booker.herokuapp.com/booking
-Request body: {}
-Status: 500
-Response body: Internal Server Error

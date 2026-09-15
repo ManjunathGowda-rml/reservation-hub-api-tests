@@ -1,4 +1,0 @@
-POST https://restful-booker.herokuapp.com/auth
-Request body: {"username": "admin", "password": "password123"}
-Status: 200
-Response body: {"token":"4de708418e64999"}
